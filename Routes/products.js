@@ -21,9 +21,9 @@ router.get('/:userId/products', authenticate, async (req, res) => {
     console.log(`Authenticated user ID: ${req.user.id}`);
     console.log(`Requested user ID: ${req.params.userId}`);
 
-    if (req.params.userId !== req.user.id.toString()) {
-      return res.status(403).send('Unauthorized');
-    }
+    // if (req.params.userId !== req.user.id.toString()) {
+    //   return res.status(403).send('Unauthorized');
+    // }
 
     const products = await db.Product.findAll();
     console.log(`Products for user ID ${req.user.id}: ${JSON.stringify(products, null, 2)}`);
@@ -38,9 +38,9 @@ router.get('/:userId/products', authenticate, async (req, res) => {
 router.put('/:userId/products/:id', authenticate, async (req, res) => {
   try {
     console.log(req.params.id);
-    if (req.params.userId !== req.user.id.toString()) {
-      return res.status(403).send('Unauthorized');
-    }
+    // if (req.params.userId !== req.user.id.toString()) {
+    //   return res.status(403).send('Unauthorized');
+    // }
     const product = await db.Product.findByPk(req.params.id);
     await product.update(req.body);
     res.status(200).json(product);
@@ -52,9 +52,9 @@ router.put('/:userId/products/:id', authenticate, async (req, res) => {
 
 router.delete('/:userId/products/:id', authenticate, async (req, res) => {
   try {
-    if (req.params.userId !== req.user.id.toString()) {
-      return res.status(403).send('Unauthorized');
-    }
+    // if (req.params.userId !== req.user.id.toString()) {
+    //   return res.status(403).send('Unauthorized');
+    // }
 
     const product = await db.Product.findByPk(req.params.id);
 console.log(product.dataValues.id +"  "+req.params.id)
