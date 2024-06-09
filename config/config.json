@@ -1,0 +1,27 @@
+{
+  "development": {
+  "name": "Aiven MySQL",
+  "host": "mysql-204fd5ae-narsimmayemul49450-303b.i.aivencloud.com",
+  "port": 16242,
+  "user": "avnadmin",
+  "password": "AVNS_QsdpKPL14E_f0MlnxVN",
+  "database": "defaultdb",
+  "dialect":"mysql",
+   "SSLMode": "require"
+  },
+    "test": {
+      "username": "avnadmin",
+      "password": "AVNS_QsdpKPL14E_f0MlnxVN",
+      "database": "defaultdb",
+      "host": "mysql-204fd5ae-narsimmayemul49450-303b.i.aivencloud.com",
+      "dialect": "mysql"
+    },
+    "production": {
+      "username": "avnadmin",
+      "password": "AVNS_QsdpKPL14E_f0MlnxVN",
+      "database": "defaultdb",
+      "host": "mysql-204fd5ae-narsimmayemul49450-303b.i.aivencloud.com",
+      "dialect": "mysql"
+    }
+  
+}
