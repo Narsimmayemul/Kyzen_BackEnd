@@ -16,14 +16,14 @@ router.post('/:userId/products', authenticate, async (req, res) => {
   }
 });
 
-router.get('/:userId/products', async (req, res) => {
+router.get('/:userId/products', authenticate, async (req, res) => {
   try {
     console.log(`Authenticated user ID: ${req.user.id}`);
     console.log(`Requested user ID: ${req.params.userId}`);
 
-    // if (req.params.userId !== req.user.id.toString()) {
-    //   return res.status(403).send('Unauthorized');
-    // }
+    if (req.params.userId !== req.user.id.toString()) {
+      return res.status(403).send('Unauthorized');
+    }
 
     const products = await db.Product.findAll();
     console.log(`Products for user ID ${req.user.id}: ${JSON.stringify(products, null, 2)}`);
