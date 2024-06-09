@@ -6,9 +6,9 @@ const db = require('../models');
 
 router.post('/:userId/products', authenticate, async (req, res) => {
   try {
-    if (req.params.userId !== req.user.id.toString()) {
-      return res.status(403).send('Unauthorized');
-    }
+    // if (req.params.userId !== req.user.id.toString()) {
+    //   return res.status(403).send('Unauthorized');
+    // }
     const newProduct = await db.Product.create({ ...req.body, UserId: req.user.id });
     res.status(201).json(newProduct);
   } catch (error) {
