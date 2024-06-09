@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
       return res.status(401).send('Invalid credentials');
     }
     const token = jwt.sign({ id: user.id }, 'narsimma');
-    res.status(200).json({ token });
+    res.status(200).json({ token , user});
     console.log(username , password);
   } catch (error) {
 
