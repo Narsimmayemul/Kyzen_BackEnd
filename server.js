@@ -39,7 +39,7 @@ db.User = require('./models/user')(sequelize, Sequelize);
 db.Product = require('./models/product')(sequelize, Sequelize);
 
 
-const signupRouter = require('./routes/signup');
+const signupRouter = require('./Routes/signup');
 const signinRouter = require('./Routes/signin');
 const productRouter = require('./Routes/products');
 
